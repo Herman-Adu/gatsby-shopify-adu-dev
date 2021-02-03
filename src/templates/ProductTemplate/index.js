@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import React, { useState, useEffect, useContext } from 'react'
 import { graphql } from 'gatsby';
-import { Layout, ImageGallary } from 'components'
+import { Layout, ImageGallary, ProductQuantityAdder } from 'components'
 import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from 'context/CartContext';
 import { navigate, useLocation } from '@reach/router'
@@ -88,6 +88,10 @@ export default function ProductTemplate(props) {
                 {!!selectedVariant && (
                   <>
                      <Price>£{selectedVariant.price}</Price>
+                     <ProductQuantityAdder
+                        available={selectedVariant.available}
+                        variantId={selectedVariant.id}		
+                      />
                   </>                 
                 )}
               </>
