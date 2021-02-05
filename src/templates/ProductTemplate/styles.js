@@ -5,6 +5,8 @@ export const Grid = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
+  margin-top: 20px;
+
 
   /* assign styles to screens above 768px */
   @media (min-width: 768px) {
