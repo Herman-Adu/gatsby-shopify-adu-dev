@@ -9,9 +9,11 @@ export function CategoryFilterItem({ title, id }) {
     const qs = queryString.parse(search);
     const collectionIds = qs.c?.split(',').filter(c => !!c) || [];
     const checked = collectionIds?.find(cId => cId === id);
+    const searchTerm = qs.s;
 
-     const onClick = () => {
-        let navigateTo = '/all-products';       
+    const onClick = () => {
+        let navigateTo = '/all-products';
+            
         let newIds = []; 
 
         if (checked) {
@@ -23,13 +25,19 @@ export function CategoryFilterItem({ title, id }) {
             newIds = collectionIds.map(cId => encodeURIComponent(cId));
         }
 
-        if (newIds.length) {
+        if (newIds.length && !searchTerm) {
             navigate(`${navigateTo}?c=${newIds.join(',')}`)
+        }  else if (newIds.length && !!searchTerm) { // check if newIds.length and searchTerm ha values
+            navigate(
+                `${navigateTo}?c=${newIds.join(',')}&s=${encodeURIComponent(
+                    searchTerm
+                )}`
+            );
+        } else if (!newIds.length && !!searchTerm) {
+            navigate(`${navigateTo}?s=${encodeURIComponent(searchTerm)}`);
         } else {
             navigate(`${navigateTo}`) // base url for all-products
-        }
-
-        
+        }        
     }
 
     return (
