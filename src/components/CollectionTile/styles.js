@@ -31,6 +31,16 @@ export const CollectionTileContent = styled.div`
     > div {
         padding: 20px;       
     }
+
+    > ${StyledLink} {
+        border: 1px solid black;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+    }
 `;
 
 export const Title = styled.div`
