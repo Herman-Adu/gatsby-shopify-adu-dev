@@ -8,6 +8,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <SEO description="The Mad Hatter store homepage" title="Homepage" />
       <HomepageCollectionsGrid collections={collections.filter(collection => collection.title !== 'Featured Hats')} />
       {!!collections.find(
           collection => collection.title === 'Featured Hats'

@@ -7,7 +7,7 @@ export const CollectionTileWrapper = styled.div`
     display: flex;
     position: relative;
     margin-bottom: 5px;
-    
+
     // target all child div's
     > div {
         flex-grow: 1;
@@ -26,39 +26,45 @@ export const CollectionTileContent = styled.div`
     text-decoration: none;
     background: rgba(0, 0, 0, 0.5);
     text-align: center;
-
-    // target all child div's
     > div {
-        padding: 20px;       
-    }
+        padding: 20px;
 
-    > ${StyledLink} {
-        border: 1px solid black;
-        text-decoration: none;
-        display: block;
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-        color: black;
+        ${StyledLink} {
+            padding: 10px;
+            background: white;
+            border: 1px solid black;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            display: inline-block;
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            
+            &:hover {
+                color: white;
+                background: black;
+            }
+        }
     }
 `;
 
 export const Title = styled.div`
-  padding: 5px 10px;
-  margin-bottom: 5px;
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 40px;
-  font-weight: bold;
-  border-radius: 10px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
-  background: ${props => (props.sale ? 'red' : 'none')};
-`;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+    background: ${props => (props.sale ? 'red' : 'none')};
+    `;
 
 export const Description = styled.div`
-  font-size: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  background: ${props => (props.sale ? 'red' : 'none')};
-  padding: 10px;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background: ${props => (props.sale ? 'red' : 'none')};
+    padding: 10px;
 `;

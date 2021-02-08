@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Layout, Filters, ProductsGrid } from 'components';
+import { Layout, Filters, ProductsGrid, SEO } from 'components';
 import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import queryString from 'query-string';
@@ -62,6 +62,7 @@ export default function AllProducts() {
 
     return (
         <Layout>
+            <SEO description="The Mad Hatter store all products" title="All products" />
             {!!searchTerm && !!filteredProducts.length &&
                 <h3>
                    searchTerm: <strong>'{searchTerm}'</strong>
